@@ -1,0 +1,11 @@
+{
+  "name": "node_express_boilerplate",
+  "version": "1.0.0",
+  "description": "In this repository I will practices in a MERN (MongoDB, Express.js, React.js, and Node.js) project. For self practice imporve skill set",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

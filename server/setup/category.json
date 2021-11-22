@@ -1,0 +1,27 @@
+[
+  {
+    "categoryName": "Grocery Item",
+    "createdAt": "2021-01-01T00:00:00.000Z",
+    "updatedAt": "2021-01-01T00:00:00.000Z"
+  },
+  {
+    "categoryName": "Dairy Item",
+    "createdAt": "2021-02-01T00:00:00.000Z",
+    "updatedAt": "2021-02-01T00:00:00.000Z"
+  },
+  {
+    "categoryName": "Baby Item",
+    "createdAt": "2021-03-01T00:00:00.000Z",
+    "updatedAt": "2021-03-01T00:00:00.000Z"    
+  },
+  {
+    "categoryName": "Other Item",
+    "createdAt": "2021-04-01T00:00:00.000Z",
+    "updatedAt": "2021-04-01T00:00:00.000Z"
+  },
+  {
+    "categoryName": "Fruits Item",
+    "createdAt": "2021-05-01T00:00:00.000Z",
+    "updatedAt": "2021-05-01T00:00:00.000Z"
+  }
+]
