@@ -26,7 +26,7 @@ app.use(pino);
 app.use(handleRequest);
 
 const swaggerDocument = require('./swagger.json')
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
+app.use('/api-end-point', swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 configureRoutes(app);
 app.use(handleError);

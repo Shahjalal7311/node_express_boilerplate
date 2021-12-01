@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "localhost:5000",
+  "host": "localhost:5100",
   "basePath": "/api",
   "tags": [
     {
@@ -21,37 +21,258 @@
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/products/search": {
+    "Products": {
       "post": {
-        "tags": ["Product"],
-        "summary": "Checks the input product from the user",
+        "tags": ["Products"],
+				"description": "Create product",
+				"produces": ["application/json"],
         "parameters": [
           {
-            "name": "input",
+            "name": "product",
+            "required": ["productName", "sku", "cost", "price"],
             "in": "body",
-            "description": "Product we want to check",
-            "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "searchText": {
-                  "type": "string"
-                }               
+            "properties": {
+              "productName": {
+                "type": "string"
               },
-              "required": []
+              "sku": {
+                "type": "string"
+              },
+              "cost": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              }
             }
           }
         ],
+        "responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+      },
+      "put":{
+        "tags": ["Products"],
+				"description": "Update Product",
+				"produces": ["application/json"],
+        "parameters": [
+          {
+            "name":"product",
+            "required": ["productName", "sku", "cost", "price"],
+            "in": "body",
+            "properties": {}
+          }
+        ],
+        "responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+      },
+      "get": {
+        "tags": ["Products"],
+        "description": "List products",
         "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "query",
+            "type": "string",
+            "description": "Collection ID",
+            "example": "5c0728badc70ea3dec00d8e6",
+            "defaultValue": ""
+          },
+          {
+            "name": "productName",
+            "in": "query",
+            "type": "string",
+            "description": " Sampo, Biscuit",
+            "example": "Sampo"
+          },
+          {
+            "name": "sku",
+            "in": "query",
+            "type": "string",
+            "description": " sku-2301",
+            "example": "sku-2301"
+          },
+          {
+            "name": "cost",
+            "in": "query",
+            "type": "string",
+            "description": " 230 TK ",
+            "example": "230 TK "
+          },
+          {
+            "name": "price",
+            "in": "query",
+            "type": "string",
+            "description": " sell price-350tk ",
+            "example": " 350TK "
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Returns the result",
-            "schema": {
-              "type": "string"
-            }
+            "description": "Success"
           }
         }
-      }
+      },
+      "delete": {
+				"tags": ["Products"],
+				"description": "Delete Product",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "_id",
+						"in": "query",
+						"required": true,
+						"type": "string",
+						"description": "Collection ID",
+						"example": "5c0728badc70ea3dec00d8e6"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
+    },
+    "users": {
+      "post": {
+        "tags": ["Users"],
+				"description": "Create user",
+				"produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "user",
+            "required": ["firstName", "lastName", "username", "address", "phoneNumber","email","roleName","password"],
+            "in": "body",
+            "properties": {}
+          }
+        ],
+        "responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+      },
+      "put":{
+        "tags": ["Users"],
+				"description": "Update user",
+				"produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "user",
+            "required": ["firstName", "lastName", "username", "address", "phoneNumber","email","roleName","password"],
+            "in": "body",
+            "properties": {}
+          }
+        ],
+        "responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+      },
+      "get": {
+        "tags": ["Users"],
+        "description": "List users",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "query",
+            "type": "string",
+            "description": "Collection ID",
+            "example": "5c0728badc70ea3dec00d8e6",
+            "defaultValue": ""
+          },
+          {
+            "name": "firstName",
+            "in": "query",
+            "type": "string",
+            "description": " Shah ",
+            "example": "Shah "
+          },
+          {
+            "name": "lastName",
+            "in": "query",
+            "type": "string",
+            "description": " Laste Name ",
+            "example": " Last Name "
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "type": "string",
+            "description": " shahjalal ",
+            "example": " shahjalal "
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "type": "string",
+            "description": " Dhaka-1216, Bangladesh ",
+            "example": " Dhaka-1216, Bangladesh "
+          },
+          {
+            "name": "phoneNumber",
+            "in": "query",
+            "type": "string",
+            "description": " 01781-xxxxxx ",
+            "example": " 01781-xxxxxx "
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "type": "string",
+            "description": " xxxx@gmail.com ",
+            "example": " xxxx@gmail.com "
+          },
+          {
+            "name": "roleName",
+            "in": "query",
+            "type": "string",
+            "description": " Role Id(1 =admin , 2= editor) ",
+            "example": " Role Id(1 =admin , 2= editor) "
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "type": "string",
+            "description": " 12345678 ",
+            "example": " 12345678 "
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+				"tags": ["Users"],
+				"description": "Delete user",
+				"produces": ["application/json"],
+				"parameters": [
+					{
+						"name": "_id",
+						"in": "query",
+						"required": true,
+						"type": "string",
+						"description": "Collection ID",
+						"example": "5c0728badc70ea3dec00d8e6"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success"
+					}
+				}
+			}
     }
   }
 }
